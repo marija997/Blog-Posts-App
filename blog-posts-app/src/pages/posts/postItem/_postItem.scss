@@ -1,0 +1,45 @@
+.post-item {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  cursor: pointer;
+  background-color: $base-color;
+  padding: 2rem;
+  min-height: 15vw;
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.2);
+    z-index: 9;
+  }
+  p::first-letter {
+    font-size: 30px;
+    text-transform: capitalize;
+  }
+}
+
+// .post-item {
+//   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+//   transition: 0.3s;
+//   cursor: pointer;
+//   background-color: $base-color;
+//   display: flex;
+//   flex-direction: row;
+//   .left-side {
+//     background-color: $secondary-color;
+//     flex: 1 0 0;
+//     padding: 2rem;
+//     color: $base-color;
+//   }
+//   .right-side {
+//     flex: 1 0 0;
+//     padding: 2rem;
+//     p::first-letter {
+//       font-size: 30px;
+//       text-transform: capitalize;
+//     }
+//   }
+//   &:hover {
+//     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+//     transform: scale(1.2);
+//     z-index: 9;
+//   }
+// }
