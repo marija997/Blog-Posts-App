@@ -1,0 +1,38 @@
+.post-content {
+  position: sticky;
+  top: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: $secondary-color;
+  color: $base-color;
+  border-radius: 5px;
+  padding: 2rem;
+  max-height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  .post-text {
+    line-height: 2rem;
+    &::first-letter {
+      font-size: 50px;
+      text-transform: uppercase;
+    }
+  }
+  .user {
+    padding-top: 3rem;
+    font-style: italic;
+    a {
+      font-weight: 500;
+      transition: all 0.25s ease-in-out;
+    }
+    &:hover {
+      a {
+        transition: all 0.25s ease-in-out;
+        color: $primary-color !important;
+        text-decoration: underline !important;
+      }
+    }
+  }
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+}

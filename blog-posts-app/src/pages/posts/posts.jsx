@@ -1,10 +1,10 @@
+import Heading from "../../components/heading";
 import PostItem from "./postItem";
 
 const Posts = ({ posts }) => {
   return (
     <div className={"posts-container container"}>
-      <h1>Posts</h1>
-
+      <Heading text={"Posts"} />
       {posts?.length > 0 ? (
         <div className={`listing`}>
           {posts.map((post) => {

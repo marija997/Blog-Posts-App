@@ -1,0 +1,49 @@
+.comment {
+  padding: 2rem;
+  padding-bottom: 0;
+  transition: all 0.25s ease-in-out;
+  .border {
+    margin: 2rem -3rem;
+    border-top-width: 1px;
+    border-top-style: solid;
+    max-height: 1px;
+    border-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        $secondary-color,
+        rgba(0, 0, 0, 0)
+      )
+      100% 1;
+  }
+  .comment-name {
+    text-transform: capitalize;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  .comment-text {
+    margin-top: 2rem;
+    padding-left: 2rem;
+    margin-bottom: 0;
+    transition: all 0.25s ease-in-out;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+  .trigger {
+    cursor: pointer;
+    margin-top: 0;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding-left: 2rem;
+    font-weight: 500;
+    color: $danger;
+  }
+  a {
+    text-transform: lowercase;
+    font-style: italic;
+    &:hover {
+      text-decoration: underline !important;
+      color: $danger !important;
+    }
+  }
+}
