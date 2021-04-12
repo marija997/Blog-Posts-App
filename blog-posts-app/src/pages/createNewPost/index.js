@@ -24,7 +24,10 @@ const CreateNewPost = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Create New Post</title>
-        <link rel="canonical" href={`/create-new-post}`} />
+        <link
+          rel="canonical"
+          href={`https://localhost:3000/create-new-post}`}
+        />
       </Helmet>
       <Heading text={`Create New Post`} />
       <form id={`create-new-post-form`} onSubmit={handleSubmit(onSubmit)}>

@@ -59,7 +59,7 @@ const Posts = ({
       <Helmet>
         <meta charSet="utf-8" />
         <title>Posts</title>
-        <link rel="canonical" href={`/posts`} />
+        <link rel="canonical" href={`https://localhost:3000/`} />
       </Helmet>
       <Heading text={"Posts"} />
       {posts?.length > 0 ? (

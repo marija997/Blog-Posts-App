@@ -60,7 +60,7 @@ const Users = ({
       <Helmet>
         <meta charSet="utf-8" />
         <title>Users</title>
-        <link rel="canonical" href={`/users`} />
+        <link rel="canonical" href={`https://localhost:3000/users`} />
       </Helmet>
       <Heading text={"Users"} />
       {users?.length > 0 ? (

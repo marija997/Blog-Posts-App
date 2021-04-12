@@ -11,7 +11,7 @@ const UserDetail = ({ user, posts }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>{user.name}</title>
-        <link rel="canonical" href={`/user/${path}`} />
+        <link rel="canonical" href={`https://localhost:3000/user/${path}`} />
       </Helmet>
       <Heading text={user?.name} />
       <div className={`content`}>

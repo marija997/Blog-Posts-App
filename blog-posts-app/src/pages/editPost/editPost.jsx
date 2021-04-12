@@ -25,7 +25,7 @@ const EditPost = ({ post }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Edit Post {post.title}</title>
-        <link rel="canonical" href={`/edit/${path}}`} />
+        <link rel="canonical" href={`https://localhost:3000/edit/${path}}`} />
       </Helmet>
       <Heading text={`Edit Post : ${post.title}`} />
       <form id={`create-new-post-form`} onSubmit={handleSubmit(onSubmit)}>

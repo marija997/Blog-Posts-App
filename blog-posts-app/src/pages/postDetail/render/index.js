@@ -11,7 +11,7 @@ const PostDetail = ({ post, comments, user }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>{post.title}</title>
-        <link rel="canonical" href={`/post/${path}`} />
+        <link rel="canonical" href={`https://localhost:3000/post/${path}`} />
       </Helmet>
       <Heading text={post?.title} />
       <div className={`content`}>
