@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import { getUserById } from "../../API/users/getUserById";
 import AdditionalDataFetching from "./additionalDataFetching";
+import { isEmpty } from "lodash";
 
 const UserDataFetching = ({ location }) => {
   const path = location.pathname;
@@ -29,7 +30,7 @@ const UserDataFetching = ({ location }) => {
         timeout={3000}
       />
     );
-  if (user) return <AdditionalDataFetching user={user} />;
+  if (user && !isEmpty(user)) return <AdditionalDataFetching user={user} />;
   return <p>Page not found</p>;
 };
 export default UserDataFetching;

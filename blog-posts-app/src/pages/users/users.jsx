@@ -4,6 +4,7 @@ import Heading from "../../components/heading";
 import PostItem from "./userItem";
 import { getUsers } from "../../API/users/getUsers";
 import Loader from "react-loader-spinner";
+import { Helmet } from "react-helmet";
 
 const Users = ({
   users,
@@ -56,6 +57,11 @@ const Users = ({
 
   return (
     <div className={"users-container container"}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Users</title>
+        <link rel="canonical" href={`/users`} />
+      </Helmet>
       <Heading text={"Users"} />
       {users?.length > 0 ? (
         <div>

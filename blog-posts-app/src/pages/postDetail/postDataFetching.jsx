@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import { getPostById } from "../../API/posts/getPostById";
 import AdditionalDataFetching from "./additionalDataFetching";
+import { isEmpty } from "lodash";
 
 const PostDataFetching = ({ location }) => {
   const path = location.pathname;
@@ -29,7 +30,7 @@ const PostDataFetching = ({ location }) => {
         timeout={3000}
       />
     );
-  if (post) return <AdditionalDataFetching post={post} />;
+  if (post && !isEmpty(post)) return <AdditionalDataFetching post={post} />;
   return <p>Page not found</p>;
 };
 export default PostDataFetching;

@@ -48,6 +48,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 30vw;
     &:hover,
     &:focus,
     &:active {
@@ -72,6 +73,8 @@ body {
     padding-top: 5rem;
     padding-bottom: 10rem;
     &.form-container {
+      background-color: $base-color;
+      margin-top: 5rem;
       form {
         padding: 0 1.5rem;
       }

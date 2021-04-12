@@ -9,7 +9,7 @@ const PostData = () => {
   if (post !== undefined) {
     return <AdditionalDataFetching post={post} />;
   }
-
+  //in case the post data is not available via router link component, making sure the data is fetched from API endpoint
   return <PostDataFetching location={location} />;
 };
 

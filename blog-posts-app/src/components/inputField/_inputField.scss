@@ -51,7 +51,7 @@
     font-size: 1rem;
     color: #757575;
     cursor: text;
-    background-color: $primary-color;
+    background-color: $base-color;
   }
 
   .form-field:focus {
@@ -65,7 +65,7 @@
     ~ .form-label {
       position: absolute;
       top: 8px;
-      background-color: $primary-color;
+      background-color: $base-color;
       display: block;
       transition: 0.2s;
       font-size: 1rem;

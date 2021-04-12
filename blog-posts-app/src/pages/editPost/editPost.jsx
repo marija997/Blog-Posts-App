@@ -5,6 +5,7 @@ import InputField from "../../components/inputField";
 import { editPost } from "../../API/posts/editPost";
 import { useDispatch } from "react-redux";
 import Loader from "react-loader-spinner";
+import { Helmet } from "react-helmet";
 
 const EditPost = ({ post }) => {
   const { handleSubmit, control, formState, trigger } = useForm();
@@ -17,9 +18,15 @@ const EditPost = ({ post }) => {
       editPost(data, postId, setLoading, dispatch);
     }
   };
-
+  const title = post.title.replace(/\s+/g, "-");
+  const path = `${title}_id-${post.id}`;
   return (
     <div className={`edit-post container form-container`}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Edit Post {post.title}</title>
+        <link rel="canonical" href={`/edit/${path}}`} />
+      </Helmet>
       <Heading text={`Edit Post : ${post.title}`} />
       <form id={`create-new-post-form`} onSubmit={handleSubmit(onSubmit)}>
         <Controller
