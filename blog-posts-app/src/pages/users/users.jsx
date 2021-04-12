@@ -1,13 +1,13 @@
 import { useEffect, useRef, useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import Heading from "../../components/heading";
-import PostItem from "./postItem";
-import { getPosts } from "../../API/posts/getPosts";
+import PostItem from "./userItem";
+import { getUsers } from "../../API/users/getUsers";
 import Loader from "react-loader-spinner";
 
-const Posts = ({
-  posts,
-  setPosts,
+const Users = ({
+  users,
+  setUsers,
   currentPage,
   setCurrentPage,
   hasMoreData,
@@ -23,10 +23,10 @@ const Posts = ({
       let offsetTop = ref.current.getBoundingClientRect().top;
       if (offsetTop < 773 && !loading) {
         setCurrentPage(currentPage + 1);
-        getPosts(
-          posts,
+        getUsers(
+          users,
           setLoading,
-          setPosts,
+          setUsers,
           dispatch,
           currentPage + 1,
           setHasMoreData
@@ -35,13 +35,14 @@ const Posts = ({
     }
   }, [
     ref,
-    posts,
     currentPage,
+    users,
+    setUsers,
+    setLoading,
     dispatch,
-    setCurrentPage,
-    loading,
     setHasMoreData,
-    setPosts,
+    loading,
+    setCurrentPage,
   ]);
 
   useEffect(() => {
@@ -54,13 +55,13 @@ const Posts = ({
   });
 
   return (
-    <div className={"posts-container container"}>
-      <Heading text={"Posts"} />
-      {posts?.length > 0 ? (
+    <div className={"users-container container"}>
+      <Heading text={"Users"} />
+      {users?.length > 0 ? (
         <div>
           <div className={`listing`}>
-            {posts.map((post) => {
-              return <PostItem key={`posts-listing-${post.id}`} post={post} />;
+            {users.map((user) => {
+              return <PostItem key={`users-listing-${user.id}`} user={user} />;
             })}
           </div>
           {hasMoreData ? (
@@ -81,10 +82,10 @@ const Posts = ({
           )}
         </div>
       ) : (
-        <p className={`no-posts`}>There are no posts available.</p>
+        <p className={`no-posts`}>There are no users available.</p>
       )}
     </div>
   );
 };
 
-export default Posts;
+export default Users;

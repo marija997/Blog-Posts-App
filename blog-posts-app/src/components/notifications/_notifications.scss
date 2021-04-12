@@ -1,0 +1,26 @@
+.notifications {
+  position: fixed;
+  top: 10%;
+  left: 0;
+  animation: 1s slideIn forwards;
+  padding: 2rem;
+  min-width: 20vw;
+  color: $base-color;
+  background-color: $success;
+  &.error {
+    background-color: $danger;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}

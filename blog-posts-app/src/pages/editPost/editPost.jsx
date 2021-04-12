@@ -2,30 +2,30 @@ import { useState } from "react";
 import Heading from "../../components/heading";
 import { useForm, Controller } from "react-hook-form";
 import InputField from "../../components/inputField";
-import { createPost } from "../../API/posts/createPost";
+import { editPost } from "../../API/posts/editPost";
 import { useDispatch } from "react-redux";
 import Loader from "react-loader-spinner";
 
-const CreateNewPost = () => {
+const EditPost = ({ post }) => {
   const { handleSubmit, control, formState, trigger } = useForm();
   const { errors } = formState;
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-
+  const postId = post.id;
   const onSubmit = (data) => {
     if (data) {
-      createPost(data, setLoading, dispatch);
+      editPost(data, postId, setLoading, dispatch);
     }
   };
 
   return (
-    <div className={`create-new-post container form-container`}>
-      <Heading text={`Create New Post`} />
+    <div className={`edit-post container form-container`}>
+      <Heading text={`Edit Post : ${post.title}`} />
       <form id={`create-new-post-form`} onSubmit={handleSubmit(onSubmit)}>
         <Controller
           control={control}
           name={`title`}
-          defaultValue={""}
+          defaultValue={post.title ? post.title : ""}
           rules={{ required: true }}
           render={({ field: { onChange, value, name, ref } }) => (
             <InputField
@@ -41,7 +41,7 @@ const CreateNewPost = () => {
         <Controller
           control={control}
           name={`content`}
-          defaultValue={""}
+          defaultValue={post.body ? post.body : ""}
           rules={{ required: true }}
           render={({ field: { onChange, value, name, ref } }) => (
             <InputField
@@ -73,4 +73,4 @@ const CreateNewPost = () => {
   );
 };
 
-export default CreateNewPost;
+export default EditPost;

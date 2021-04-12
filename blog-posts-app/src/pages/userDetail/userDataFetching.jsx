@@ -1,23 +1,23 @@
 import { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
-import { getPostById } from "../../API/posts/getPostById";
+import { getUserById } from "../../API/users/getUserById";
 import AdditionalDataFetching from "./additionalDataFetching";
 
-const PostDataFetching = ({ location }) => {
+const UserDataFetching = ({ location }) => {
   const path = location.pathname;
 
-  let postId = path.slice(path.indexOf("_id-"), path.length);
+  let userId = path.slice(path.indexOf("_id-"), path.length);
 
-  postId = postId.replace(/_id-/, "");
+  userId = userId.replace(/_id-/, "");
 
   const [loading, setLoading] = useState(false);
-  const [post, setPost] = useState({});
+  const [user, setUser] = useState({});
 
   useEffect(() => {
-    if (postId) {
-      getPostById(postId, setLoading, setPost);
+    if (userId) {
+      getUserById(userId, setLoading, setUser);
     }
-  }, [postId]);
+  }, [userId]);
 
   if (loading)
     return (
@@ -29,7 +29,7 @@ const PostDataFetching = ({ location }) => {
         timeout={3000}
       />
     );
-  if (post) return <AdditionalDataFetching post={post} />;
+  if (user) return <AdditionalDataFetching user={user} />;
   return <p>Page not found</p>;
 };
-export default PostDataFetching;
+export default UserDataFetching;

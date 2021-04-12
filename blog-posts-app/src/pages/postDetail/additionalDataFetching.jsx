@@ -17,7 +17,7 @@ const AdditionalDataFetching = ({ post }) => {
     if (userId) {
       getUserById(userId, setLoading, setUser);
     }
-  }, []);
+  }, [postId, userId]);
 
   if (loading)
     return (

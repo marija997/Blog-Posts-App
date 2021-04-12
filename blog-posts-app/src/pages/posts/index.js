@@ -1,18 +1,38 @@
-import React, { useState, useEffect } from "react";
-import { getPosts } from "../../API/posts/getPosts";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Posts from "./posts";
-import PostsSkeleton from "./skeleton";
+import PostsData from "./postsData";
 
-const PostsData = () => {
-  const [loading, setLoading] = useState(false);
-  const [posts, setPosts] = useState({});
+const PostsRedux = () => {
+  //checking if there are posts in our redux store
+  const reduxPosts = useSelector((state) => state.posts?.posts);
+  const [posts, setPosts] = useState(reduxPosts);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [hasMoreData, setHasMoreData] = useState(true);
+  //if posts array in redux store, no unnecessary call are made to API, data if fetched from redux store
+  if (posts && posts.length > 0)
+    return (
+      <Posts
+        posts={posts}
+        setPosts={setPosts}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        hasMoreData={hasMoreData}
+        setHasMoreData={setHasMoreData}
+      />
+    );
 
-  useEffect(() => {
-    getPosts(setLoading, setPosts);
-  }, []);
-
-  if (loading) return <PostsSkeleton />;
-  return <Posts posts={posts} />;
+  //if posts array in redux store is empty, data is fetched from API
+  return (
+    <PostsData
+      posts={posts}
+      setPosts={setPosts}
+      currentPage={currentPage}
+      setCurrentPage={setCurrentPage}
+      hasMoreData={hasMoreData}
+      setHasMoreData={setHasMoreData}
+    />
+  );
 };
 
-export default PostsData;
+export default PostsRedux;

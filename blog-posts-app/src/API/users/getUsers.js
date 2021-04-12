@@ -1,16 +1,16 @@
 import { config } from "../../config/config";
 
-export const getPosts = async (
-  posts,
+export const getUsers = async (
+  users,
   setLoading,
-  setPosts,
+  setUsers,
   dispatch,
   page,
   setHasMoreData
 ) => {
   setLoading(true);
   await fetch(
-    `${config.API_Url}/posts?_page=${page}&_limit=${config.responseLimit}`,
+    `${config.API_Url}/users?_page=${page}&_limit=${config.responseLimit}`,
     {
       method: "GET",
     }
@@ -19,17 +19,17 @@ export const getPosts = async (
     .then(
       (result) => {
         if (result.length > 0) {
-          if (posts !== undefined) {
-            setPosts([...posts, ...result]);
+          if (users !== undefined) {
+            setUsers([...users, ...result]);
             setLoading(false);
             dispatch({
-              type: "POPULATE_POSTS",
-              payload: [...posts, ...result],
+              type: "POPULATE_USERS",
+              payload: [...users, ...result],
             });
           } else {
-            setPosts(result);
+            setUsers(result);
             setLoading(false);
-            dispatch({ type: "POPULATE_POSTS", payload: result });
+            dispatch({ type: "POPULATE_USERS", payload: result });
           }
         }
         setLoading(false);

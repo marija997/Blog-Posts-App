@@ -1,0 +1,44 @@
+.user-info {
+  margin-bottom: 50px;
+  background-color: $base-color;
+  .item-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    @media screen and(max-width:992px) {
+      flex-direction: column;
+    }
+  }
+  .left-side,
+  .right-side {
+    flex: 1 0 0;
+    padding: 3rem;
+  }
+  .info-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    p {
+      margin-right: 20px;
+      min-width: 20%;
+      font-weight: 600;
+    }
+  }
+  .left-side {
+    background-color: $secondary-color;
+    color: $base-color;
+    h2 {
+      line-height: 2.5rem;
+    }
+    h2::after {
+      content: "";
+      height: 5px;
+      width: 50px;
+      display: flex;
+      border-radius: 5px;
+      background-color: $danger;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+}

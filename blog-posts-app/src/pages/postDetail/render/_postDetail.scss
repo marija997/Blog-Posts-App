@@ -11,5 +11,11 @@
       flex: 1 0 0;
       margin: 0 1rem;
     }
+    @media screen and(max-width:992px) {
+      flex-direction: column;
+      .comments-container {
+        margin-top: 40px;
+      }
+    }
   }
 }

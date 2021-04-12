@@ -1,0 +1,17 @@
+.users-container {
+  @import "./userItem/userItem";
+  .no-posts {
+    text-align: center;
+  }
+  .listing {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    @media screen and(max-width:992px) {
+      display: flex;
+      flex-direction: column;
+      padding: 0 1.5rem;
+    }
+  }
+}

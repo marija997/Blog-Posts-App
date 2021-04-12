@@ -1,9 +1,9 @@
 import { config } from "../../config/config";
 
-export const createPost = async (data, setLoading, dispatch) => {
+export const editPost = async (data, postId, setLoading, dispatch) => {
   setLoading(true);
-  await fetch(`${config.API_Url}/posts/`, {
-    method: "POST",
+  await fetch(`${config.API_Url}/posts/${postId}`, {
+    method: "PUT",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
@@ -16,13 +16,9 @@ export const createPost = async (data, setLoading, dispatch) => {
     .then((response) => response.json())
     .then(
       (result) => {
-        console.log(result);
         dispatch({
           type: "SHOW_NOTIFICATION",
-          payload: {
-            message: "New Post Successfully Created",
-            type: "success",
-          },
+          payload: { message: "Post Successfully edited", type: "success" },
         });
         setLoading(false);
       },

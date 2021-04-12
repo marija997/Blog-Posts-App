@@ -1,14 +1,14 @@
 import { config } from "../../config/config";
 
-export const getPostById = async (postId, setLoading, setPost) => {
+export const getUserPosts = async (userId, setLoading, setPosts) => {
   setLoading(true);
-  await fetch(`${config.API_Url}/posts/${postId}`, {
-    method: "PATCH",
+  await fetch(`${config.API_Url}/posts?userId=${userId}`, {
+    method: "GET",
   })
     .then((response) => response.json())
     .then(
       (result) => {
-        setPost(result);
+        setPosts(result);
         setLoading(false);
       },
       (error) => {
