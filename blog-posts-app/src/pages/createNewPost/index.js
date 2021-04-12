@@ -5,7 +5,6 @@ import InputField from "../../components/inputField";
 import { createPost } from "../../API/posts/createPost";
 import { useDispatch } from "react-redux";
 import Loader from "react-loader-spinner";
-import { Helmet } from "react-helmet";
 
 const CreateNewPost = () => {
   const { handleSubmit, control, formState, trigger } = useForm();
@@ -21,14 +20,6 @@ const CreateNewPost = () => {
 
   return (
     <div className={`create-new-post container form-container`}>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Create New Post</title>
-        <link
-          rel="canonical"
-          href={`https://localhost:3000/create-new-post}`}
-        />
-      </Helmet>
       <Heading text={`Create New Post`} />
       <form id={`create-new-post-form`} onSubmit={handleSubmit(onSubmit)}>
         <Controller

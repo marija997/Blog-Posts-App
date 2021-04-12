@@ -4,7 +4,6 @@ import Heading from "../../components/heading";
 import PostItem from "./postItem";
 import { getPosts } from "../../API/posts/getPosts";
 import Loader from "react-loader-spinner";
-import { Helmet } from "react-helmet";
 
 const Posts = ({
   posts,
@@ -56,11 +55,6 @@ const Posts = ({
 
   return (
     <div className={"posts-container container"}>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Posts</title>
-        <link rel="canonical" href={`https://localhost:3000/`} />
-      </Helmet>
       <Heading text={"Posts"} />
       {posts?.length > 0 ? (
         <div>
